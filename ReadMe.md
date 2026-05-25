@@ -127,7 +127,7 @@ Fitur menempatkan kendaraan ke area parkir. Validasi kapasitas dan jenis kendara
 * **Test Case 4.4: Validasi Kendaraan Tidak Terdaftar (5 Poin)**
   * Input: `area-add#Area X#5#car`, `park#GHOST99#Area X`, lalu `display-all`
   * Expected Output: `Area X car 5|0`
-</details>
+</details>0-mkppppppppp
 
 ### 5. Display All (20 Poin)
 Menampilkan data area parkir (asc by name) dan kendaraan di dalamnya (asc by plate).
