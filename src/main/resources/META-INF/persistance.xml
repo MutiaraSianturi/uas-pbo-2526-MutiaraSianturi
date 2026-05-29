@@ -1,21 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <persistence xmlns="https://jakarta.ee/xml/ns/persistence"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence 
+             https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
              version="3.0">
-    
+
     <persistence-unit name="parkit-pu" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        
+
+        <!-- Daftarkan semua entity class di sini -->
+        <class>pbo.f01.Model.ParkingArea</class>
+        <class>pbo.f01.Model.Vehicle</class>
+
         <properties>
-            <property name="jakarta.persistence.jdbc.driver" value="UBAH_DENGAN_DRIVER_CLASS"/>
-            <property name="jakarta.persistence.jdbc.url" value="UBAH_DENGAN_JDBC_URL"/>
-            <property name="jakarta.persistence.jdbc.user" value="UBAH_DENGAN_DATABASE_USER"/>
-            <property name="jakarta.persistence.jdbc.password" value="UBAH_DENGAN_DATABASE_PASSWORD"/>
-            
-            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <!-- H2 file-based: data tersimpan di file ./parkit_db -->
+            <property name="jakarta.persistence.jdbc.driver" 
+                      value="org.h2.Driver"/>
+            <property name="jakarta.persistence.jdbc.url" 
+                      value="jdbc:h2:./parkit_db"/>
+            <property name="jakarta.persistence.jdbc.user" 
+                      value="sa"/>
+            <property name="jakarta.persistence.jdbc.password" 
+                      value=""/>
+
+            <!-- create: buat ulang tabel tiap run (bagus untuk autograde) -->
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
             <property name="hibernate.show_sql" value="false"/>
-            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.format_sql" value="false"/>
+            <property name="hibernate.dialect" 
+                      value="org.hibernate.dialect.H2Dialect"/>
         </properties>
     </persistence-unit>
 </persistence>
