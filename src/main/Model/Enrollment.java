@@ -1,2 +1,0 @@
-// NAMA     : MUTIARA Y.H. SIANTURI
-// NIM      : 12S24045
